@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hack-O-Pitch | IITM Paradox'22 | Hackathon + B-Plan Competition</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src=https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.rings.min.js></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script> -->
+    <script src="js/main.js"></script>
+    <link rel="shortcut icon" href="img/hackopitch_favicon-modified.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/timeline.css">
+    <style>
+        #navbar a {
+            color: white;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .menu-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .menu-item:not(:last-child) {
+            margin-right: 1rem;
+        }
+
+        .menu-item a,
+        .logo {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+        }
+
+        .menu-btn {
+            display: none;
+            width: 35px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .bar {
+            height: 3px;
+            background-color: #333;
+            margin: 0.5rem 0;
+        }
+
+        .menu-btn::after,
+        .menu-btn::before {
+            content: '';
+            display: block;
+            height: 3px;
+            background-color: #333;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-list {
+            display: none;
+            border: 1px solid #ccc;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            border-radius: 4px;
+            padding: 0.75rem;
+            position: absolute;
+        }
+
+        .show-dropdown {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dropdown-list a:not(:first-child) {
+            margin-top: 0.5rem;
+        }
+
+        @media(max-width: 500px) {
+            .menu-btn {
+                display: block;
+            }
+
+            .main-nav {
+                flex-wrap: wrap;
+            }
+
+            .menu-list {
+                flex-basis: 100%;
+                flex-grow: 1;
+                flex-direction: column;
+            }
+
+            .menu-item {
+                margin-top: 0.5rem;
+            }
+
+            .nav-hidden {
+                display: none;
+            }
+
+            .dropdown-list {
+                border: none;
+                box-shadow: none;
+                padding: 0.75rem 0;
+                width: 100%;
+                margin-left: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <nav id="navbar" class="main-nav">
+
+        <a href="index.html"><img width="120px" height="80px" src="img/hackopitch_logo.png" alt="HOME" ALIGN=CENTER></a>
+
+        <button class="menu-btn">
+            <div class="bar"></div>
+        </button>
+
+        <ul class="menu-list nav-hidden">
+            <li class="menu-item">
+                <a href="index.html#faq">FAQS</a>
+            </li>
+            <li class="menu-item">
+                <a href="index.html#schedule">SCHEDULE</a>
+            </li>
+            <li class="menu-item">
+                <a href="index.html#sponsors">SPONSORS</a>
+            </li>
+            <li class="menu-item">
+                <a href="teams.html">Our Team</a>
+            </li>
+            <li class="menu-item dropdown">
+                <a href="#" role="button"></a>
+            </li>
+        </ul>
+
+    </nav>
+
+    <header id="halo">
+
+        <div class="contents">
+
+            <div class="one"><br>
+
+                <img class="logo" src="img/paradox_logo.png" alt="PARADOX 2022"> <span>Presents</span><br>
+
+
+
+
+                <h2>
+                    Hackathon + B-Plan <br>Competition <br>
+                </h2>
+
+                <h4>
+                    Indian Institute of Technology Madras,
+                    <br> Chennai, Tamil Nadu - 600036
+                </h4>
+
+
+                <div style="margin-left: 40px; color: #f70f0f;">
+                    <span>Only <b>IITM BSC Degree</b> Email Ids <br> are allowed for Registration.</span><br><br>
+                    <div class="apply-button" data-hackathon-slug="hackopitch-iitm" data-button-theme="dark-inverted"
+                        style="height: 44px; width: 312px"></div>
+                </div>
+
+                <br><br>
+
+
+            </div>
+        </div>
+
+    </header>
+
+    <div class="prizes">
+
+        <h2 class="neonText">
+            Prizes & Perks
+        </h2>
+        <div class="highlights">
+            <div class="prbox">
+                <img src="img/place3.svg" alt="">
+                <p>Prize worth 1Lakh INR </p>
+            </div>
+
+            <div class="prbox">
+                <img src="img/place_.svg" alt="">
+                <p>Swags, Merchandise & Coupons for Participants</p>
+            </div>
+
+            <div class="prbox">
+                <img src="img/place2.svg" alt="">
+                <p>Internship & Referral opportunity</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="content">
+        <br><br>
+        <h2 class="neonText">
+            THEMES TO HACK
+        </h2>
+
+        <div class="highlights">
+
+            <div class="container">
+                <div class="card">
+                    <div class="front">
+                        <img src="img/agriculture.jpeg" alt="AGRI-TECH">
+                        <p>AGRI-TECH</p>
+                    </div>
+                    <div class="back">
+                        Innovation in Technology driven farming.
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="front">
+                        <img src="img/culture.png.jpeg" alt="AGRI-TECH">
+                        <p>HERITAGE & CULTURE</p>
+
+                    </div>
+                    <div class="back">
+                        Digitization of intangible cultural heritage preservation.
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="front">
+                        <img src="img/work.jpg" alt="work from home">
+                        <p>WORK FROM HOME</p>
+                    </div>
+                    <div class="back">
+                        Some cool projects, to make work from home easy & interesting.
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="front">
+                        <img src="img/health.jpeg" alt="HEALTH">
+                        <p>HEALTH, FITNESS & SPORTS</p>
+                    </div>
+                    <div class="back">
+                        Apps to improve,health,sports, hospital and administrative productivity, give new insight in
+                        medicine and treatment.
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="front">
+                        <img src="img/blockchain.jpeg" alt="BLOCKCHAIN AND CYBER SECURITY">
+                        <p>BLOCKCHAIN & CYBER SECURITY</p>
+                    </div>
+                    <div class="back">
+                        Bug finder or Blockchain/Cyber Security tools to secure privacy and data ownership.
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="front">
+                        <img src="img/automation.png" alt="SMART AUTOMATIOM">
+                        <p>SMART AUTOMATION</p>
+                    </div>
+                    <div class="back">
+                        Smart automation in Daily life needs, Hybrid electric vehicles and Charging station detection
+                        etc.
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="front">
+                        <img src="img/education.png" alt="SMART EDUCATION">
+                        <p>SMART EDUCATION</p>
+                    </div>
+                    <div class="back">
+                        Smart education, a concept that describes learning in digital age. It enables learners to learn
+                        more effectively, efficiently, flexibly and comfortably.
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="front">
+                        <img src="img/innovation.jpg" alt="OPEN INNOVATION">
+                        <p>OPEN INNOVATION</p>
+                    </div>
+                    <div class="back">
+                        You can build Anything, that can solve real life problems.
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <br><br>
+        <br><br>
+
+        <h2 class="neonText">JUDGES
+        </h2>
+        <div class="judges">
+            <div class="judge-card">
+                <img src="img/daksh.png" alt="Daksh Miglani">
+                <h4>Daksh Miglani</h4>
+                <p>Market.xyz & Adler</p>
+            </div>
+            <div class="judge-card">
+                <img src="img/sonam.jpeg" alt="Sonam Srivastava">
+                <h4>Sonam Srivastava</h4>
+                <p>Wright Research</p>
+            </div>
+            <div class="judge-card">
+                <img src="img/soham.jpeg" alt="Soham Ganatra">
+                <h4>Soham Ganatra</h4>
+                <p>Bureau</p>
+            </div>
+
+
+        </div>
+
+        <h2 class="neonText">MENTORS</h2>
+        <div class="mentors">
+
+            <div class="mentor-card">
+                <img src="img/ayon.jpeg" alt="Ayon Roy">
+                <h4>Ayon Roy</h4>
+                <p>NielsenIQ</p>
+            </div>
+            <div class="mentor-card">
+                <img src="img/harish.jpeg" alt="Harish Uthayakumar">
+                <h4>Harish Uthayakumar</h4>
+                <p>BlueLearn</p>
+            </div>
+            <div class="mentor-card">
+                <img src="img/suhas.jpeg" alt="Suhas Motwani">
+                <h4>Suhas Motwani</h4>
+                <p>The Product Folks</p>
+            </div>
+            <div class="mentor-card">
+                <img src="img/devashish.jpeg" alt="Devashish Soni">
+                <h4>Devashish Soni</h4>
+                <p>Crayon Data</b>
+                </p>
+            </div>
+
+        </div>
+
+        <div id="schedule">
+            <h2 class="neonText">
+                EVENT SCHEDULE
+            </h2>
+            <section class="timeline-section">
+                <div class="timeline-items">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">12TH FEBRUARY, 2023</div>
+                        <div class="timeline-content">
+                            <h3>Registration Starts</h3>
+                            <p>You can register youself by visiting <a class="link"
+                                    href="https://hackopitch-iitm.devfolio.co/">Devfolio</a> Platform </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">03 March, 2023</div>
+                        <div class="timeline-content">
+                            <h3>Registration ends</h3>
+                            <p>Last date for event Registration. </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">04TH MARCH, 2023</div>
+                        <div class="timeline-content">
+                            <h3>Hackathon Starts - Students Activity Center, IIT Madras</h3>
+                            <p>This round will consist of 4 hrs Hackathon via Offline Mode. You will be competing with
+                                different registered teams. The deliverable of this round will be a Prototype/Product
+                                like An Web App, Mobile App, IoT Device, Blockchain/Cybersecurity
+                                tools, etc. </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">05TH MARCH, 2023</div>
+                        <div class="timeline-content">
+                            <h3>Hackathon ends</h3>
+                            <p>Last date for Hackathon round submission upon which the Closing Ceremony shall end </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">10TH MARCH, 2023</div>
+                        <div class="timeline-content">
+                            <h3>Hackathon Round Results</h3>
+
+                            <p>The top 10 teams will be qualified for B Plan Pitching Round at IIT Madras Campus 0n 10TH
+                                March 2023 during <a
+                                    href="https://sites.google.com/student.onlinedegree.iitm.ac.in/paradox22"
+                                    class="link">IITM Paradox'23</a></p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+        <div class="sponsors" id="sponsors">
+            <h2 class="neonText">Event Sponsor</h2>
+            <div class="highlights">
+                <a href="https://www.market.xyz/"><img class="img" src="img/market.png" alt="Market"></a>
+            </div>
+        </div>
+
+        <div class="sponsors" id="sponsors">
+            <h2 class="neonText">Platform Partners</h2>
+            <div class="highlights">
+                <a href="https://devfolio.co/"><img class="img" src="img/Devfolio_Logo-White.svg" alt="Devfolio"></a>
+                <a href="https://polygon.technology/"><img class="img" src="img/Polygon_Logo-White.png"
+                        alt="Polygon"></a>
+                <a href="https://tezos.com/"><img class="img" src="img/Tezos_Logo-White.png" alt="Tezos"></a>
+                <a href="https://filecoin.io/"><img class="img" src="img/Filecoin_Logo_White.png" alt="Filecoin"></a>
+                <a href="https://celo.org/"><img id="celo" class="img" src="img/Celo_Logo_White.png" alt="Celo"></a>
+            </div>
+        </div>
+        <div class="faq" id="faq">
+            <h2 class="neonText">
+                FAQ
+            </h2>
+            <button class="accordion">Is there any registration fee?</button>
+            <div class="panel">
+                <p>No, It’s absolutely free of cost.</p>
+            </div>
+
+            <button class="accordion">What is the allowed team size?</button>
+            <div class="panel">
+                <p>Form a team, comprising of minimum 1 and maximum 5 members (Only IITM BSC Students are allowed).</p>
+            </div>
+
+            <button class="accordion">What If I don't have a team?</button>
+            <div class="panel">
+
+                <p>Don't worry, we've got your back! We have a networking session and you can find your future team
+                    mates in our <a class="link" href="https://telegram.me/+ceiUqANHQL4wYzU9">Telegram group</a>.</p>
+
+            </div>
+
+            <button class="accordion">This is my first hackathon, Can I participate ?</button>
+            <div class="panel">
+                <p>Of course you can! Experience does not matter till the time you have the zest to change the world.
+                    New comers are most welcome!</p>
+            </div>
+
+            <button class="accordion">Are there any special prizes for girls?</button>
+            <div class="panel">
+                <p>Yes. In order to promote gender equality and diversity, we have a special prize money for the best
+                    All-Girls team.</p>
+            </div>
+
+            <button class="accordion">Is it online or offline?</button>
+            <div class="panel">
+                <p>The hackathon is online (6th - 8th May 2022). Only the Top 10 teams will be invited offline to pitch
+                    their ideas in front of our esteemed judges at IIT Madras Campus (22nd May 2022).</p>
+            </div>
+
+            <button class="accordion">What if I don't know how to code?</button>
+            <div class="panel">
+
+                <p>That is not a problem! A great way to learn how to code is by attending a hackathon. You never know
+                    what new skill you might pick up! You can also ask specific questions to our mentors and in the
+                    <a class="link" href="https://telegram.me/+ceiUqANHQL4wYzU9">Telegram group</a>, where people are
+                    there to help. Plus we have planned numerous workshops and talks for you guys to make the learning
+                    process better.
+
+                </p>
+            </div>
+
+            <button class="accordion">Are there any sponsored challenges and API prizes?</button>
+            <div class="panel">
+                <p>There will be prizes from multiple sponsors to build a hack on top of their APIs or platform. Keep an
+                    eye out on the hackathon website, where we'll be adding more ideas to hack as we get closer to the
+                    event
+                </p>
+            </div>
+
+            <button class="accordion">What if I have more queries?</button>
+            <div class="panel">
+                <p>You can reach out to us on our <a class="link" href="https://telegram.me/+ceiUqANHQL4wYzU9">Telegram
+                        group</a> or our <a class="link" href="mailto:support@hackopitch.tech">Email</a>.</p>
+            </div>
+
+            <button class="accordion">What's in it for me?</button>
+            <div class="panel">
+
+                <p>Cash Prizes for winners, Swags for top 10 teams, certificates and much much much more...Our website
+                    manager couldn't fit it in! Phew!</p>
+
+            </div>
+        </div>
+
+        <br><br><br>
+
+        <hr>
+
+        <footer id="footer">
+            <h3>Have A Question?</h3>
+            <a href="mailto:support@hackopitch.tech"><img src="img/mail.svg" alt="MAIL"></a>
+            <a href="https://telegram.me/+ceiUqANHQL4wYzU9"><img src="img/telegram.png" alt="TELEGRAM"></a>
+            <a href="https://www.instagram.com/iitm_paradox/"><img src="img/ig.svg" alt="Instagram"></a>
+            <a href="https://sites.google.com/student.onlinedegree.iitm.ac.in/paradox22"><img src="img/web.png"
+                    alt="WEB"></a>
+            <br>
+            <div class="contact">
+                <img class="small-icons" src="img/pin.svg" alt="" ALIGN=CENTER>
+                <p>Indian Institute of Technology Madras, Chennai, Tamil Nadu - 600036</p>
+            </div>
+            <div class="copyright">
+                <h6>All Copyright &copy; reserverd to Hack-O-Pitch IITM Paradox'23</h6>
+            </div>
+            <br> <br>
+        </footer>
+    </div>
+
+    <script src="js/nav.js"></script>
+    <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+
+        VANTA.RINGS({
+            el: "#halo",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: true,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            backgroundColor: 0x0,
+            color: 0x341d7d
+        })
+
+
+
+        // VANTA.NET({
+        //     el: "#content",
+        //     mouseControls: true,
+        //     touchControls: true,
+        //     gyroControls: false,
+        //     minHeight: 200.00,
+        //     minWidth: 200.00,
+        //     scale: 1.00,
+        //     scaleMobile: 1.00,
+        //     color: 0x77ff3f,
+        //     backgroundColor: 0x0,
+        //     points: 13.00,
+        //     maxDistance: 10.00,
+        //     spacing: 18.00
+        // })
+
+        // VANTA.NET({
+        //     el: "#schedule",
+        //     mouseControls: true,
+        //     touchControls: true,
+        //     gyroControls: false,
+        //     minHeight: 200.00,
+        //     minWidth: 200.00,
+        //     scale: 1.00,
+        //     scaleMobile: 1.00,
+        //     color: 0x77ff3f,
+        //     backgroundColor: 0x0,
+        //     points: 13.00,
+        //     maxDistance: 10.00,
+        //     spacing: 18.00
+        // })
+    </script>
+</body>
+
+</html>
